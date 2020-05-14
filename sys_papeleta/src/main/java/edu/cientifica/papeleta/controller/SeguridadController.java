@@ -24,11 +24,11 @@ public class SeguridadController {
 	 * 
 	 * @RequestParam: anotacion que lee los parametros de peticiones POST
 	 */
-	@RequestMapping(value = "/autentiacion", method = RequestMethod.POST)
+	@RequestMapping(value = "/autenticacion", method = RequestMethod.POST)
 	public String autenticacion(Model model, @RequestParam(name = "usuario") String usuario,
 			@RequestParam(name = "password") String password) {
 		String mensaje;
-		if (usuario.equals("clave")) {
+		if (password.equals("clave")) {
 			mensaje = "Password correcto";
 
 		} else {
@@ -36,7 +36,7 @@ public class SeguridadController {
 		}
 
 		model.addAttribute("msg", mensaje);
-		model.addAttribute("username", mensaje);
+		model.addAttribute("username", usuario);
 
 		return "resultado";
 	}
