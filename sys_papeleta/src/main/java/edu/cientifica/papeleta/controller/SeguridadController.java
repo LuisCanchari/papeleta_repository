@@ -38,6 +38,6 @@ public class SeguridadController {
 		model.addAttribute("msg", mensaje);
 		model.addAttribute("username", usuario);
 
-		return "resultado";
+		return "principal";
 	}
 }
