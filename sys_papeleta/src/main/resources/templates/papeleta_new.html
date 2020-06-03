@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Principal</title>
+<!-- <link rel="stylesheet" th:href="@{/css/principal_page1.css}"> -->
+
+
+
+<link rel="stylesheet" href="/demo.css" th:href="@{/css/demo.css}">
+<link rel="stylesheet"
+	th:href="@{https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css}">
+<link rel="stylesheet"
+	th:href="@{https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css}"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+
+<script th:src="@{https://code.jquery.com/jquery-3.2.1.slim.min.js}"
+	integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+	crossorigin="anonymous"></script>
+<script
+	th:src="@{https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js}"
+	integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+	crossorigin="anonymous"></script>
+<script
+	th:src="@{https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js}"
+	integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+	crossorigin="anonymous"></script>
+
+
+</head>
+
+<body>
+	<div id="contenedor">
+		<div id="cabecera">
+			<img th:src="@{/img/logo_7.png}" alt="logo">
+
+		</div>
+		<div id="filainfo">
+			<div id="infosesion">
+				<a href="#"><i class="fa fa-user-circle-o fa-fw"
+					aria-hidden="true"> </i><strong th:text="'Usuario: ' + ${username}">LUIS</strong></a>
+				<a href="#" th:href="@{/}"> <i class="fa fa-home fa-fw"
+					aria-hidden="true"></i>Salir
+				</a>
+			</div>
+			<div id="infotitulo">
+				<p>Página principal</p>
+				<p></p>
+			</div>
+		</div>
+		<div class="fila">
+			<div class="menu">
+
+				<p>Gestión de Papeleta</p>
+				<a href="#"> <i class="fa fa-book fa-fw" aria-hidden="true"></i>
+					Listado
+				</a> <a href="/papeleta_new.html#" th:href="@{/papeleta/nuevo}"> <i
+					class="fa fa-pencil fa-fw" aria-hidden="true"></i> Nueva Papeleta
+				</a> <a href="#"> <i class="fa fa-cog fa-fw" aria-hidden="true"></i>
+					Acciones
+				</a>
+
+				<p>Usuario</p>
+				<a href="#"><i class="fa fa-user-circle-o fa-fw"
+					aria-hidden="true"></i> Cambiar contraseña</a> <a href="#"><i
+					class="fa fa-cog fa-fw" aria-hidden="true"></i> Configurar</a>
+			</div>
+			<div class="main">
+				<!--Contenido de la pagina  -->
+				<form action="" class="form">
+					<div class="container">
+						<div class="row">
+							<div class="col-3">
+								<label for="area">Area</label>
+							</div>
+							<div class="col-7">
+
+								<select id="area" name="area" class = "form-control">
+									<option th:each="area : ${listadoAreas}"
+										th:value="${area.idArea}" th:text="${area.nombreLargo}"></option>
+								</select>
+
+								<!-- <option value="1">Area 1</option>
+                                  <select id="area" class="form-control" name="area">
+                                  
+                                   <option value="2">Area 2</option>
+                                   <option value="3">Area 3</option> -->
+								
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-3">
+								<label for="empleado">Empleado</label>
+							</div>
+							<div class="col-7">
+								<select id="empleado" class="form-control">
+									<option value="1">Empleado 1</option>
+									<option value="2">Empleado 2</option>
+									<option value="3">Empleado 3</option>
+								</select>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-3">
+								<label for="fechaInicio">Fecha y hora de Inicio</label>
+							</div>
+							<div class="col-5">
+								<input type="date" id="fechaInicio" name="fechaInicio"
+									class="form-control">
+							</div>
+							<div class="col-2">
+								<input type="time" id="horaInicio" name="horaInicio"
+									class="form-control">
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-3">
+								<label for="fechaFin">Fecha y hora Fin</label>
+							</div>
+							<div class="col-5">
+								<input type="date" id="fechaFin" name="fechaFin"
+									class="form-control">
+							</div>
+							<div class="col-2">
+								<input type="time" id="horaFin" name="horaFin"
+									class="form-control">
+							</div>
+						</div>
+					</div>
+					<fieldset class="border p-2">
+						<legend class="w-auto">Motivos</legend>
+						<div id="cajamotivo">
+
+							<div class="columna">
+								<p>CON GOCE DE REMUNERACION</p>
+								<div class="form-check">
+
+									<input class="form-check-input" type="radio" id="motivo11"
+										value="motivo 1" name="motivo"> <label
+										class="form-check-label" for="motivo11">Descanso
+										Médico</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input" type="radio" id="motivo12"
+										value="motivo 2" name="motivo"> <label
+										class="form-check-label" for="motivo12">Cita Médica</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input" type="radio" id="motivo13"
+										value="motivo 3" name="motivo"> <label
+										class="form-check-label" for="motivo13">Capacitación
+										Oficializada</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input" type="radio" id="motivo14"
+										value="motivo 4" name="motivo"> <label
+										class="form-check-label" for="motivo14">Comisión de
+										servicios</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input" type="radio" id="motivo15"
+										value="motivo 5" name="motivo"> <label
+										class="form-check-label" for="motivo15">Onomastico</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input" type="radio" id="motivo16"
+										value="motivo 6" name="motivo"> <label
+										class="form-check-label" for="motivo16">Vacaciones</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input" type="radio" id="motivo17"
+										value="motivo 7" name="motivo"> <label
+										class="form-check-label" for="motivo17">Otro</label>
+								</div>
+
+							</div>
+							<div class="columna">
+								<p>SIN GOCE DE REMUNERACION</p>
+								<div class="form-check">
+									<input class="form-check-input" type="radio" id="motivo21"
+										value="motivo 1" name="motivo"> <label
+										class="form-check-label" for="motivo21">Permiso
+										Particular</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input" type="radio" id="motivo22"
+										value="motivo 2" name="motivo"> <label
+										class="form-check-label" for="motivo22">Capcitación no
+										oficial</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input" type="radio" id="motivo23"
+										value="motivo 3" name="motivo"> <label
+										class="form-check-label" for="motivo23">Otro</label>
+								</div>
+							</div>
+
+							<div class="columna">
+								<p>PERMISOS CASOS ESPECIALES</p>
+								<div class="form-check">
+									<input class="form-check-input" type="radio" id="motivo31"
+										value="motivo 1" name="motivo"> <label
+										class="form-check-label" for="motivo31">Omision de
+										marcado</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input" type="radio" id="motivo32"
+										value="motivo 2" name="motivo"> <label
+										class="form-check-label" for="motivo32">Matrimonio</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input" type="radio" id="motivo33"
+										value="motivo 3" name="motivo"> <label
+										class="form-check-label" for="motivo33">Fallecimiento
+										familiar</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input" type="radio" id="motivo34"
+										value="motivo 4" name="motivo"> <label
+										class="form-check-label" for="motivo34">Enfermedad
+										familiar</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input" type="radio" id="motivo35"
+										value="motivo 5" name="motivo"> <label
+										class="form-check-label" for="motivo35">Licencia
+										paternidad</label>
+								</div>
+							</div>
+						</div>
+					</fieldset>
+
+					<div>
+						<textarea name="observacion" id="observacion" cols="90" rows="2"></textarea>
+					</div>
+					<div>
+
+						<input type="button" class="btn btn-success" value="Grabar"
+							id="btngrabar">
+					</div>
+				</form>
+
+			</div>
+		</div>
+
+
+		<!-- <div class="right">
+                <h2>About</h2>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+            </div> -->
+		<!-- </div> -->
+
+		<div id="pie">© copyright Universidad Cientifica del Sur</div>
+	</div>
+</html>
