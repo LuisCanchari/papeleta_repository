@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <link rel="stylesheet" th:href="@{/css/principal.css}">
+    <link rel="stylesheet" th:href="@{/css/login.css}">
 
 </head>
 
 <body>
-    <form action="/autenticacion" method="POST">
+    <form th:action="@{/autenticacion}" action="/autenticacion" method="POST">
         <label for="txtusuario">Usuario: </label>
         <input type="text" id="txtusuario" name="usuario">
         <label for="txtpassword">Password: </label>
