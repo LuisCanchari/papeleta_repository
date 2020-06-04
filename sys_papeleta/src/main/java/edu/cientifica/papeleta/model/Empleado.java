@@ -10,6 +10,14 @@ public class Empleado extends Persona {
 	public Empleado() {
 		super();
 	}
+	
+	
+	public Empleado(int idPersona, int numeroDocumento, String nombres, String primerApellido, String segundoApellido,
+			String genero, int tipoEmpleado) {
+		super(idPersona, numeroDocumento, nombres, primerApellido, segundoApellido,genero);
+		this.tipoEmpleado = tipoEmpleado;
+		
+	}
 
 	public Area getArea() {
 		return area;

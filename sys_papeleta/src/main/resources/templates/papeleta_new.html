@@ -71,7 +71,7 @@
 			</div>
 			<div class="main">
 				<!--Contenido de la pagina  -->
-				<form action="" class="form">
+				<form action="/papeleta/registro" class="form" method="post">
 					<div class="container">
 						<div class="row">
 							<div class="col-3">
@@ -98,10 +98,14 @@
 								<label for="empleado">Empleado</label>
 							</div>
 							<div class="col-7">
-								<select id="empleado" class="form-control">
-									<option value="1">Empleado 1</option>
+								<select class="form-control" id="empleado"  name = "empleado">
+								<option th:each="empleado : ${listadoEmpleados}"
+                    th:value="${empleado.idPersona}" th:text="${empleado.nombres}+' '+${empleado.primerApellido}"></option>
+								
+									<!-- <option value="1">Empleado 1</option>
 									<option value="2">Empleado 2</option>
-									<option value="3">Empleado 3</option>
+									<option value="3">Empleado 3</option> -->
+									
 								</select>
 							</div>
 						</div>

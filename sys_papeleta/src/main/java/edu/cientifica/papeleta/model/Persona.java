@@ -24,6 +24,18 @@ public class Persona{
 	
 	
 	public Persona(int idPersona, int numeroDocumento, String nombres, String primerApellido, String segundoApellido,
+			String genero) {
+		super();
+		this.idPersona = idPersona;
+		this.numeroDocumento = numeroDocumento;
+		this.nombres = nombres;
+		this.primerApellido = primerApellido;
+		this.segundoApellido = segundoApellido;
+		this.genero = genero;
+	}
+
+	
+	public Persona(int idPersona, int numeroDocumento, String nombres, String primerApellido, String segundoApellido,
 			Date fechaNacimiento, String genero) {
 		super();
 		this.idPersona = idPersona;
@@ -35,6 +47,8 @@ public class Persona{
 		this.genero = genero;
 	}
 
+
+	
 
 	public int getIdPersona() {
 		return idPersona;

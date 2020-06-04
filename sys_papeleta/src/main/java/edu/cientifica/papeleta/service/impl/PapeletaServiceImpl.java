@@ -4,11 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import edu.cientifica.papeleta.model.Papeleta;
 import edu.cientifica.papeleta.service.PapeletaService;
 
+@Service
 public class PapeletaServiceImpl implements PapeletaService{
+	List<Papeleta> lista =  new ArrayList<Papeleta>();
 	
 	@Override
 	public List<Papeleta> listarPapeletas() {
@@ -25,5 +28,13 @@ public class PapeletaServiceImpl implements PapeletaService{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	public int agregarPapeleta(Papeleta p) {
+		// TODO Auto-generated method stub
+	
+	
+		return 0;
+	}
+	
 
 }

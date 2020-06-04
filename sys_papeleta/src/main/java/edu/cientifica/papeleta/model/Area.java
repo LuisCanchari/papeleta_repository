@@ -10,6 +10,13 @@ public class Area {
 		super();
 	}
 	
+	public Area(int idArea, String nombreCorto, String nombreLargo) {
+		super();
+		this.idArea = idArea;
+		this.nombreCorto = nombreCorto;
+		this.nombreLargo = nombreLargo;
+	}
+	
 	public Area(int idArea, String nombreCorto, String nombreLargo, Area areaSuperior) {
 		super();
 		this.idArea = idArea;
@@ -17,6 +24,8 @@ public class Area {
 		this.nombreLargo = nombreLargo;
 		this.areaSuperior = areaSuperior;
 	}
+	
+	
 
 	public int getIdArea() {
 		return idArea;
@@ -49,6 +58,10 @@ public class Area {
 	public void setAreaSuperior(Area areaSuperior) {
 		this.areaSuperior = areaSuperior;
 	}
+
+	
+
+	
 	
 	
 }
