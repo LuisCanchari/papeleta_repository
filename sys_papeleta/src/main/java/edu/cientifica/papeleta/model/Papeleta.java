@@ -80,4 +80,13 @@ public class Papeleta {
 		this.observaciones = observaciones;
 	}
 
+	@Override
+	public String toString() {
+		return "Papeleta [idPapeleta=" + idPapeleta + ", empleado=" + empleado + ", motivo=" + motivo + ", fechainicio="
+				+ fechainicio + ", horainicio=" + horainicio + ", fechafin=" + fechafin + ", horafin=" + horafin
+				+ ", observaciones=" + observaciones + "]";
+	}
+	
+	
+
 }

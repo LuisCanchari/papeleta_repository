@@ -92,4 +92,14 @@ public class Persona{
 	public void setGenero(String genero) {
 		this.genero = genero;
 	}
+
+
+	@Override
+	public String toString() {
+		return "Persona [idPersona=" + idPersona + ", numeroDocumento=" + numeroDocumento + ", nombres=" + nombres
+				+ ", primerApellido=" + primerApellido + ", segundoApellido=" + segundoApellido + ", fechaNacimiento="
+				+ fechaNacimiento + ", genero=" + genero + "]";
+	}
+	
+	
 }

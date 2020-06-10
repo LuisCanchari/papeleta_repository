@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+<link rel="stylesheet" th:href="@{/css/login.css}">
+
+</head>
+
+<body>
+	<form th:action="@{/area/crear}" action="/area/crear" method="POST" th:object="${area}">
+		<label for="txtId">Id: </label>
+		<input type="number" id="txtId" name="idArea" th:field="*{idArea}">
+		<label for="txtNombreCorto">Nombre Corto: </label>
+		<input type="text" id="txtNombreCorto" name="nombreCorto" th:field="*{nombreCorto}">
+		<label for="txtNombreLargo">Nombre Largo: </label>
+		<input type="text" id="txtNombreLargo" name="nombreLargo" th:field="*{nombreLargo}">
+		<input type="submit" value="Guardar">
+	</form>
+</body>
+
+</html>

@@ -5,8 +5,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Principal</title>
+<title>Listado</title>
 <!-- <link rel="stylesheet" th:href="@{/css/principal_page1.css}"> -->
+
+
 
 <link rel="stylesheet" href="/demo.css" th:href="@{/css/demo.css}">
 <link rel="stylesheet" th:href="@{https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css}">
@@ -20,6 +22,7 @@
 <script th:src="@{https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js}"
 	integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
+
 </head>
 
 <body>
@@ -30,9 +33,12 @@
 		</div>
 		<div id="filainfo">
 			<div id="infosesion">
-				<a href="#"><i class="fa fa-user-circle-o fa-fw" aria-hidden="true"> </i> <strong
-					th:text="'Usuario: ' + ${username}">LUIS</strong></a> <a href="#" th:href="@{/}"><i class="fa fa-home fa-fw"
-					aria-hidden="true"></i>Salir</a>
+				<a href="#">
+					<i class="fa fa-user-circle-o fa-fw" aria-hidden="true"> </i><strong th:text="'Usuario: ' + ${username}">LUIS</strong>
+				</a>
+				<a href="#" th:href="@{/}">
+					<i class="fa fa-home fa-fw" aria-hidden="true"></i>Salir
+				</a>
 			</div>
 			<div id="infotitulo">
 				<p>Página principal</p>
@@ -43,24 +49,60 @@
 			<div class="menu">
 				<p>Gestión de Papeleta</p>
 				<a href="/papeleta_lista.html" th:href="@{/papeleta/listar}">
-				 <i class="fa fa-book fa-fw" aria-hidden="true"></i>Listado
+					<i class="fa fa-book fa-fw" aria-hidden="true"></i>Listado
 				</a>
-				<a href="/papeleta_form.html#" th:href="@{/papeleta/form}"> <i class="fa fa-pencil fa-fw" aria-hidden="true"></i>
-					Nueva Papeleta
+				<a href="/papeleta_form.html#" th:href="@{/papeleta/form}">
+					<i class="fa fa-pencil fa-fw" aria-hidden="true"></i> Nueva Papeleta
 				</a>
 				<a href="#">
-				 <i class="fa fa-cog fa-fw" aria-hidden="true"></i> Acciones
+					<i class="fa fa-cog fa-fw" aria-hidden="true"></i> Acciones
 				</a>
 
 				<p>Usuario</p>
-				<a href="#"><i class="fa fa-user-circle-o fa-fw" aria-hidden="true">
-				  </i> Cambiar contraseña</a> 
-				 <a href="#">
-				  <i class="fa fa-cog fa-fw" aria-hidden="true"></i> Configurar
-				 </a>
+				<a href="#">
+					<i class="fa fa-user-circle-o fa-fw" aria-hidden="true"> </i> Cambiar contraseña
+				</a>
+				<a href="#">
+					<i class="fa fa-cog fa-fw" aria-hidden="true"></i> Configurar
+				</a>
 			</div>
+
 			<div class="main">
-			
+				<!-- Inicio de Listado -->
+				<table class="table table-light">
+					<thead class="thead-light">
+						<tr>
+							<th>Papeleta</th>
+							<th>Empleado</th>
+							<th>Area</th>
+							<th>Motivo</th>
+							
+						</tr>
+					</thead>
+
+					<tbody>
+						<tr th:if="${papeletas.empty}">
+							<td>No existen resultados</td>
+						</tr>
+						<tr th:each="papeleta: ${papeletas}">
+							<td>
+								<span th:text="${papeleta.idPapeleta}">Papeleta</span>
+							</td>
+							<td>
+								<span th:text="${papeleta.empleado.nombres}">Empleado</span>
+							</td>
+							<td>
+								<span th:text="${papeleta.empleado.area.nombreLargo}">Area</span>
+							</td>
+							<td>
+                <span th:text="${papeleta.motivo.descripcion}">Motivo</span>
+              </td>
+
+						</tr>
+					</tbody>
+				</table>
+
+				<!-- Fin de Listado -->
 			</div>
 		</div>
 

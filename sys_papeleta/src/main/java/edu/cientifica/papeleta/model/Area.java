@@ -59,9 +59,9 @@ public class Area {
 		this.areaSuperior = areaSuperior;
 	}
 
-	
-
-	
-	
+	@Override
+	public String toString() {
+		return "Area [idArea=" + idArea + ", nombreCorto=" + nombreCorto + ", nombreLargo=" + nombreLargo + "]";
+	}
 	
 }
