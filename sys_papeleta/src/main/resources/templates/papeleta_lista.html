@@ -33,13 +33,10 @@
 		</div>
 		<div id="filainfo">
 			<div id="infosesion">
-				<a href="#">
-					<i class="fa fa-user-circle-o fa-fw" aria-hidden="true"> </i><strong th:text="'Usuario: ' + ${username}">LUIS</strong>
-				</a>
-				<a href="#" th:href="@{/}">
-					<i class="fa fa-home fa-fw" aria-hidden="true"></i>Salir
-				</a>
-			</div>
+        <a href="#"><i class="fa fa-user-circle-o fa-fw" aria-hidden="true"> </i> <strong
+          th:text="'Usuario: ' + ${session.user.username}">LUIS</strong></a> <a href="#" th:href="@{/}"><i class="fa fa-home fa-fw"
+          aria-hidden="true"></i>Salir</a>
+      </div>
 			<div id="infotitulo">
 				<p>Página principal</p>
 				<p></p>
@@ -73,6 +70,8 @@
 					<thead class="thead-light">
 						<tr>
 							<th>Papeleta</th>
+							<th>Inicio</th>
+							<th>Fin</th>
 							<th>Empleado</th>
 							<th>Area</th>
 							<th>Motivo</th>
@@ -88,6 +87,12 @@
 							<td>
 								<span th:text="${papeleta.idPapeleta}">Papeleta</span>
 							</td>
+							<td>
+                <span th:text="${papeleta.fechaInicio}+' '+${papeleta.horaInicio}">Inicio</span>
+              </td>
+              <td>
+                <span th:text="${papeleta.fechaFin}+' '+${papeleta.horaFin}">Fin</span>
+              </td>
 							<td>
 								<span th:text="${papeleta.empleado.nombres}">Empleado</span>
 							</td>

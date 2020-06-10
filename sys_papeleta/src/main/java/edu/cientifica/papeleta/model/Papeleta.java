@@ -6,86 +6,124 @@ public class Papeleta {
 	private int idPapeleta;
 	private Empleado empleado;
 	private Motivo motivo;
-	private Date fechainicio;
-	private int horainicio;
-	private Date fechafin;
-	private int horafin;
+	private Date fechaInicio;
+	private String horaInicio;
+	private Date fechaFin;
+	private String horaFin;
 	private String observaciones;
 	
 	public Papeleta() {
 		super();
 	}
 
+	
+
 	public int getIdPapeleta() {
 		return idPapeleta;
 	}
+
+
 
 	public void setIdPapeleta(int idPapeleta) {
 		this.idPapeleta = idPapeleta;
 	}
 
+
+
 	public Empleado getEmpleado() {
 		return empleado;
 	}
+
+
 
 	public void setEmpleado(Empleado empleado) {
 		this.empleado = empleado;
 	}
 
+
+
 	public Motivo getMotivo() {
 		return motivo;
 	}
+
+
 
 	public void setMotivo(Motivo motivo) {
 		this.motivo = motivo;
 	}
 
-	public Date getFechainicio() {
-		return fechainicio;
+
+
+	public Date getFechaInicio() {
+		return fechaInicio;
 	}
 
-	public void setFechainicio(Date fechainicio) {
-		this.fechainicio = fechainicio;
+
+
+	public void setFechaInicio(Date fechaInicio) {
+		this.fechaInicio = fechaInicio;
 	}
 
-	public int getHorainicio() {
-		return horainicio;
+
+
+	public String getHoraInicio() {
+		return horaInicio;
 	}
 
-	public void setHorainicio(int horainicio) {
-		this.horainicio = horainicio;
+
+
+	public void setHoraInicio(String horaInicio) {
+		this.horaInicio = horaInicio;
 	}
 
-	public Date getFechafin() {
-		return fechafin;
+
+
+	public Date getFechaFin() {
+		return fechaFin;
 	}
 
-	public void setFechafin(Date fechafin) {
-		this.fechafin = fechafin;
+
+
+	public void setFechaFin(Date fechaFin) {
+		this.fechaFin = fechaFin;
 	}
 
-	public int getHorafin() {
-		return horafin;
+
+
+	public String getHoraFin() {
+		return horaFin;
 	}
 
-	public void setHorafin(int horafin) {
-		this.horafin = horafin;
+
+
+	public void setHoraFin(String horaFin) {
+		this.horaFin = horaFin;
 	}
+
+
 
 	public String getObservaciones() {
 		return observaciones;
 	}
 
+
+
 	public void setObservaciones(String observaciones) {
 		this.observaciones = observaciones;
 	}
 
+
+
 	@Override
 	public String toString() {
-		return "Papeleta [idPapeleta=" + idPapeleta + ", empleado=" + empleado + ", motivo=" + motivo + ", fechainicio="
-				+ fechainicio + ", horainicio=" + horainicio + ", fechafin=" + fechafin + ", horafin=" + horafin
+		return "Papeleta [idPapeleta=" + idPapeleta + ", empleado=" + empleado + ", motivo=" + motivo + ", fechaInicio="
+				+ fechaInicio + ", horaInicio=" + horaInicio + ", fechaFin=" + fechaFin + ", horaFin=" + horaFin
 				+ ", observaciones=" + observaciones + "]";
 	}
+
+
+
+	
 	
 	
 

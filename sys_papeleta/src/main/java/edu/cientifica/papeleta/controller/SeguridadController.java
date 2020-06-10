@@ -2,25 +2,34 @@ package edu.cientifica.papeleta.controller;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
+
+import edu.cientifica.papeleta.model.Usuario;
+import edu.cientifica.papeleta.service.UsuarioService;
 
 /*@Controller: anotacion para designar una clase Controlador del patron MVC*/
 @Controller
+@Scope("session")
+@SessionAttributes("user")
 public class SeguridadController {
-	
+
 	protected final Log LOG = LogFactory.getLog(this.getClass());
+	@Autowired
+	UsuarioService usuarioService;
 
 	/* @GetMapping: anotacion spring, asocia la peticion GET con un metodo */
-	@GetMapping({"/"})
+	@GetMapping({ "/" })
 	public String login() {
 
 		return "login";
-
 	}
 
 	/*
@@ -28,25 +37,23 @@ public class SeguridadController {
 	 * 
 	 * @RequestParam: anotacion que lee los parametros de peticiones POST
 	 */
-	@RequestMapping(value = {"/autenticacion"}, method = RequestMethod.POST)
-	public String autenticacion(Model model, @RequestParam(name = "usuario") String usuario,
+	@RequestMapping(value = { "/autenticacion" }, method = RequestMethod.POST)
+	public String autenticacion(Model model, @RequestParam(name = "usuario") String username,
 			@RequestParam(name = "password") String password) {
 		String mensaje;
-		if (password.equals("clave")) {
+		Usuario usuario;
+
+		usuario = new Usuario(username, password);
+		if (usuarioService.validarUsuario(usuario)) {
 			mensaje = "Password correcto";
-			LOG.info("ingreso por la clase Main Controller metodo login");
-
 			model.addAttribute("msg", mensaje);
-			model.addAttribute("username", usuario);
-
+			model.addAttribute("user", usuario);
 			return "principal";
-
 		} else {
 			mensaje = "Password incorrecto";
 			model.addAttribute("msg", mensaje);
-			model.addAttribute("username", usuario);
+			model.addAttribute("user", usuario);
 			return "login";
-			
 		}
 	}
 }

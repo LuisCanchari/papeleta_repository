@@ -1,5 +1,7 @@
 package edu.cientifica.papeleta.controller;
 
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -60,11 +62,12 @@ public class PapeletaController {
 	/* Crear Papeleta con los datos recibidos del formulario*/
 	@RequestMapping(value = { "/crear" }, method = RequestMethod.POST)
 	public String crearPapeleta(Model model, @RequestParam(name = "area") int idArea,
-		@RequestParam(name = "empleado") int idEmpleado, @RequestParam(name = "fechaInicio") String fechaInicio,
-		@RequestParam(name = "horaInicio") String horaInicio, @RequestParam(name = "fechaFin") String fechaFin,
+		@RequestParam(name = "empleado") int idEmpleado, @RequestParam(name = "fechaInicio") Date fechaInicio,
+		@RequestParam(name = "horaInicio") String horaInicio, @RequestParam(name = "fechaFin") Date fechaFin,
 		@RequestParam(name = "horaFin") String horaFin, @RequestParam(name = "motivo") int  idMotivo) {
 		
 		Papeleta papeleta = new Papeleta();
+		
 		
 		Empleado empleado = empleadoService.buscarEmpleado(idEmpleado);
 		Area area = areaService.buscarArea(idArea);
@@ -74,6 +77,14 @@ public class PapeletaController {
 		papeleta.setIdPapeleta(1);
 		papeleta.setEmpleado(empleado);
 		papeleta.setMotivo(motivo);
+		papeleta.setFechaInicio(fechaInicio);
+		papeleta.setHoraInicio(horaInicio);
+		papeleta.setFechaFin(fechaFin);
+		papeleta.setHoraInicio(horaFin);
+		
+//		SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy");
+//      String dateInString = "7-Jun-2013";
+		//papeleta.setFechafin(d.of(year, month, dayOfMonth));
 		
 		papeletaService.agregarPapeleta(papeleta);
 				
@@ -81,9 +92,14 @@ public class PapeletaController {
 		LOG.info(empleado.toString());
 		LOG.info(area.toString());
 		LOG.info(motivo.toString());
+		LOG.info(fechaInicio.toString());
+		LOG.info(fechaFin.toString());
+		LOG.info(horaInicio.toString());
+		LOG.info(horaFin.toString());
 
 		return "redirect:/papeleta/listar";
 	}
+	
 	@RequestMapping(value = { "/listar" }, method = RequestMethod.GET)
 	public String listarPapeleta(Model model) {
 		model.addAttribute("papeletas", papeletaService.listarPapeletas());
