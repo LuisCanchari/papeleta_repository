@@ -80,7 +80,7 @@ public class PapeletaController {
 		papeleta.setFechaInicio(fechaInicio);
 		papeleta.setHoraInicio(horaInicio);
 		papeleta.setFechaFin(fechaFin);
-		papeleta.setHoraInicio(horaFin);
+		papeleta.setHoraFin(horaFin);
 		
 //		SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy");
 //      String dateInString = "7-Jun-2013";

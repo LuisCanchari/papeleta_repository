@@ -18,6 +18,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 		listaUsuarios = new ArrayList<Usuario>();
 		listaUsuarios.add(new Usuario("Juan", "clave"));
 		listaUsuarios.add(new Usuario("Pedro", "clave"));
+		listaUsuarios.add(new Usuario("Anita", "clave"));
 	}
 
 	@Override
