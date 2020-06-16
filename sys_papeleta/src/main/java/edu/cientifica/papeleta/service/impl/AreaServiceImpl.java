@@ -3,14 +3,23 @@ package edu.cientifica.papeleta.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import edu.cientifica.papeleta.mappers.AreaMapper;
 import edu.cientifica.papeleta.model.Area;
 import edu.cientifica.papeleta.service.AreaService;
 
 @Service
 public class AreaServiceImpl implements AreaService {
+	
+	protected final Log LOG = LogFactory.getLog(this.getClass());
 	private List<Area> listadoAreas;
+	@Autowired AreaMapper areaMapper;
+	
+	
 
 	public AreaServiceImpl() {
 		super();
@@ -25,8 +34,15 @@ public class AreaServiceImpl implements AreaService {
 
 	@Override
 	public List<Area> listarAreas() {
+		LOG.info("Inicia la extraccion del listado de la bd");
+		List<Area> listado = new ArrayList<Area>();
+		listado = areaMapper.listaArea();
+		
+		for (Area area : listado) {
+			LOG.info(area.toString());
+		}
 		/*conectar a bd*/
-		return listadoAreas;
+		return listado;
 	}
 
 	@Override

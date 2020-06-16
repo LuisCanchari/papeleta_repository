@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="edu.cientifica.papeleta.mappers.AreaMapper">
+	<resultMap id="areaResultMap" type="edu.cientifica.papeleta.model.Area">
+		<id column="id_area" property="idArea" />
+		<result column="nombre_corto" property="nombreCorto" />
+		<result column="nombre_largo" property="nombreLargo" />
+	</resultMap>
+	<select id="listaArea" resultMap="areaResultMap">
+		select 
+		  id_area,
+		  nombre_corto,
+		  nombre_largo
+		from area
+	</select>
+	<select id="getArea" resultMap="areaResultMap">
+	 select 
+      id_area,
+      nombre_corto,
+      nombre_largo
+    from area
+    where id_area=#{id}
+	</select>
+
+</mapper>

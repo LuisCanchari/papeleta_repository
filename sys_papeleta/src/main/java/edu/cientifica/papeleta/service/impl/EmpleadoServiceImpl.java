@@ -3,9 +3,12 @@ package edu.cientifica.papeleta.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import edu.cientifica.papeleta.mappers.EmpleadoMapper;
 import edu.cientifica.papeleta.model.Area;
 import edu.cientifica.papeleta.model.Empleado;
 import edu.cientifica.papeleta.service.AreaService;
@@ -13,12 +16,16 @@ import edu.cientifica.papeleta.service.EmpleadoService;
 
 @Service
 public class EmpleadoServiceImpl implements EmpleadoService {
+	protected final Log LOG = LogFactory.getLog(this.getClass());
 	private static final int EMPLEADO_728 = 1;
 	private static final int EMPLEADO_CAS = 2;
 	private List<Empleado> listadoEmpleados;
 	
 	@Autowired
 	private AreaService areaService;
+	
+	@Autowired
+	private EmpleadoMapper empleadoMapper;
 
 	public EmpleadoServiceImpl() {
 		super();
@@ -44,7 +51,19 @@ public class EmpleadoServiceImpl implements EmpleadoService {
 	}
 	@Override
 	public List<Empleado> listarEmpleados() {
-		return listadoEmpleados;
+		LOG.info("ingreso a lista de empleados");
+		List<Empleado> listado = new ArrayList<Empleado>();
+		listado =  empleadoMapper.listaEmpleado();
+		
+		for (Empleado empleado : listado) {
+			LOG.info(empleado.toString());
+			
+		}
+		
+		//return listadoEmpleados;
+		
+		return  listado;
+				
 	}
 	
 	@Override

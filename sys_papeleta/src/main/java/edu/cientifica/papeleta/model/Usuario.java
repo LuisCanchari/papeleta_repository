@@ -40,7 +40,7 @@ public class Usuario extends Empleado{
 
 	@Override
 	public String toString() {
-		return "Usuario [username=" + username + ", password=" + password + "EmpleadotoStrig = "+super.toString() + "]";
+		return "Usuario ["+super.toString() + "username=" + username + ", password=" + password +"]";
 	}
 	
 }

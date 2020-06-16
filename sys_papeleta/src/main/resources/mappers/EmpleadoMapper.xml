@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="edu.cientifica.papeleta.mappers.EmpleadoMapper">
+	<resultMap id="empleadoResultMap" extends="edu.cientifica.papeleta.mappers.PersonaMapper.personaResultMap"
+		type="edu.cientifica.papeleta.model.Empleado">
+		<result column="fecha_ingreso" property="fechaIngreso" />
+		<result column="tipo_empleado" property="tipoEmpleado" />
+		<association column="id_area" property="area" javaType="edu.cientifica.papeleta.model.Area"
+			resultMap="edu.cientifica.papeleta.mappers.AreaMapper.areaResultMap" />
+	</resultMap>
+	<select id="listaEmpleado" resultMap="empleadoResultMap">
+		Select
+		<include refid="edu.cientifica.papeleta.mappers.PersonaMapper.camposPersona"></include>,
+		e.fecha_ingreso,
+		e.id_tipo_empleado,
+		e.id_area
+		From empleado e
+		Inner Join Persona p
+		On e.id_empleado = p.id_persona
+	</select>
+</mapper>
