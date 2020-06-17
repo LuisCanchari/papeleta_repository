@@ -12,5 +12,5 @@ import edu.cientifica.papeleta.model.Area;
 public interface AreaMapper {
 //	@Select("select id_area idArea, nombre_corto nombreCorto, nombre_largo nombreLargo, area_superior areaSuperior from area")
 	public List<Area> listaArea();
-	public Area getArea(int id);
+	public Area areaById(int id);
 }

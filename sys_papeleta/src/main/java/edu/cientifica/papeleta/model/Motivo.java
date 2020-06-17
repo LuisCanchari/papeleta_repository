@@ -3,13 +3,13 @@ package edu.cientifica.papeleta.model;
 public class Motivo {
 	private int idMotivo;
 	private String descripcion;
-	private String tipoMotivo;
+	private int tipoMotivo;
 	
 	public Motivo() {
 		super();
 	}
 
-	public Motivo(int idMotivo, String descripcion, String tipoMotivo) {
+	public Motivo(int idMotivo, String descripcion, int tipoMotivo) {
 		super();
 		this.idMotivo = idMotivo;
 		this.descripcion = descripcion;
@@ -32,12 +32,18 @@ public class Motivo {
 		this.descripcion = descripcion;
 	}
 
-	public String getTipoMotivo() {
+	public int getTipoMotivo() {
 		return tipoMotivo;
 	}
 
-	public void setTipoMotivo(String tipoMotivo) {
+	public void setTipoMotivo(int tipoMotivo) {
 		this.tipoMotivo = tipoMotivo;
 	}
+
+	@Override
+	public String toString() {
+		return "Motivo [idMotivo=" + idMotivo + ", descripcion=" + descripcion + ", tipoMotivo=" + tipoMotivo + "]";
+	}
+	
 
 }

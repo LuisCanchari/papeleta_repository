@@ -30,10 +30,13 @@
 		</div>
 		<div id="filainfo">
 			<div id="infosesion">
-				<a href="#"><i class="fa fa-user-circle-o fa-fw" aria-hidden="true"> </i> <strong
-					th:text="'Usuario: ' + ${session.user.username}">LUIS</strong></a> 
-				<a href="#" th:href="@{/}"><i class="fa fa-home fa-fw"
-					aria-hidden="true"></i>Salir</a>
+				<a href="#">
+					<i class="fa fa-user-circle-o fa-fw" aria-hidden="true"> </i> <strong
+						th:text="'Usuario: ' + ${session.user.username}">LUIS</strong>
+				</a>
+				<a href="#" th:href="@{/}">
+					<i class="fa fa-home fa-fw" aria-hidden="true"></i>Salir
+				</a>
 			</div>
 			<div id="infotitulo">
 				<p>Página principal</p>
@@ -44,25 +47,41 @@
 			<div class="menu">
 				<p>Gestión de Papeleta</p>
 				<a href="/papeleta_lista.html" th:href="@{/papeleta/listar}">
-				 <i class="fa fa-book fa-fw" aria-hidden="true"></i>Listado
+					<i class="fa fa-book fa-fw" aria-hidden="true"></i>Listado
 				</a>
-				<a href="/papeleta_form.html#" th:href="@{/papeleta/form}"> <i class="fa fa-pencil fa-fw" aria-hidden="true"></i>
-					Nueva Papeleta
+				<a href="/papeleta_form.html#" th:href="@{/papeleta/form}">
+					<i class="fa fa-pencil fa-fw" aria-hidden="true"></i> Nueva Papeleta
 				</a>
 				<a href="#">
-				 <i class="fa fa-cog fa-fw" aria-hidden="true"></i> Acciones
+					<i class="fa fa-cog fa-fw" aria-hidden="true"></i> Acciones
 				</a>
 
 				<p>Usuario</p>
-				<a href="#"><i class="fa fa-user-circle-o fa-fw" aria-hidden="true">
-				  </i> Cambiar contraseña</a> 
-				 <a href="#">
-				  <i class="fa fa-cog fa-fw" aria-hidden="true"></i> Configurar
-				 </a>
+				<a href="#">
+					<i class="fa fa-user-circle-o fa-fw" aria-hidden="true"> </i> Cambiar contraseña
+				</a>
+				<a href="#">
+					<i class="fa fa-cog fa-fw" aria-hidden="true"></i> Configurar
+				</a>
+
+				<p>Mantenimiento</p>
+				<a href="#" th:href="@{/area/lista}">
+				  <i class="fa fa-briefcase" aria-hidden="true"></i></i> Areas
+				</a>
+				<a href="#" th:href="@{/motivo/lista}">
+				   <i class="fa fa-sticky-note-o" aria-hidden="true"></i> Motivo
+				</a>
+				<a href="#" th:href="@{/empleado/lista}">
+				  <i class="fa fa-address-card-o" aria-hidden="true"></i> Empleado
+				</a>
+				<a href="#" th:href="@{/usuario/lista}">
+          <i class="fa fa-user-plus" aria-hidden="true"></i> Usuario
+        </a>
+        
 			</div>
-			<div class="main">
-			
-			</div>
+
+
+			<div class="main"></div>
 		</div>
 
 		<div id="pie">© copyright Universidad Cientifica del Sur</div>

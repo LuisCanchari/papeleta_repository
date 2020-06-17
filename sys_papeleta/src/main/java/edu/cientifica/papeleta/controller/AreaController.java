@@ -36,10 +36,10 @@ public class AreaController {
 		model.addAttribute("areas", areaService.listarAreas());
 		
 		LOG.info(area.toString());
-		return "redirect:/area/listar";
+		return "redirect:/area/lista";
 	}
 	
-	@RequestMapping(value = {"/listar"}, method = RequestMethod.GET)
+	@RequestMapping(value = {"/lista"}, method = RequestMethod.GET)
 	public String listarArea(Model model)
 	{
 		model.addAttribute("areas", areaService.listarAreas());

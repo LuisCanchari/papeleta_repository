@@ -6,6 +6,6 @@ import edu.cientifica.papeleta.model.Empleado;
 
 public interface EmpleadoService {
 	public List<Empleado> listarEmpleados();
-	public Empleado buscarEmpleado(int id);
+	public Empleado empleadoById(int id);
 
 }

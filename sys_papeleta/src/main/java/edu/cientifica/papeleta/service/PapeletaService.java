@@ -6,8 +6,11 @@ import edu.cientifica.papeleta.model.Papeleta;
 
 
 public interface PapeletaService {
-	public List<Papeleta> listarPapeletas();
-	public Papeleta buscarPapeleta(int id);
-	public int agregarPapeleta(Papeleta papeleta);
+	public int nuevoIdPapeleta();
+	public List<Papeleta> listaPapeletas();
+	public Papeleta papeletaById(int id);
+	public int insertarPapeleta(Papeleta papeleta);
+	public int actualizarPapeleta(Papeleta papeleta);
+	
 
 }

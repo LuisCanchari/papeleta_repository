@@ -59,7 +59,7 @@ public class EmpleadoServiceImpl implements EmpleadoService {
 			LOG.info(empleado.toString());
 			
 		}
-		
+
 		//return listadoEmpleados;
 		
 		return  listado;
@@ -67,12 +67,15 @@ public class EmpleadoServiceImpl implements EmpleadoService {
 	}
 	
 	@Override
-	public Empleado buscarEmpleado(int id) {
+	public Empleado empleadoById(int id) {
+		Empleado empleado; //= new Empleado();
+		empleado = empleadoMapper.empleadoById(id);
+		/*
 		for (Empleado empleado : listadoEmpleados) {
 			if (empleado.getIdPersona() == id) {
 				return empleado;
 			}
-		}
-		return null;
+		}*/
+		return empleado;
 	}
 }

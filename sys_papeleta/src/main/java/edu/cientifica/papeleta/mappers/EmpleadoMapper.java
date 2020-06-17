@@ -10,5 +10,6 @@ import edu.cientifica.papeleta.model.Empleado;
 public interface EmpleadoMapper {
 
 	public List<Empleado> listaEmpleado();
+	public Empleado empleadoById(int Id);
 
 }

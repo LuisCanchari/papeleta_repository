@@ -10,7 +10,7 @@ public class Papeleta {
 	private String horaInicio;
 	private Date fechaFin;
 	private String horaFin;
-	private String observaciones;
+	private String observacion;
 	
 	public Papeleta() {
 		super();
@@ -101,24 +101,19 @@ public class Papeleta {
 	}
 
 
-
-	public String getObservaciones() {
-		return observaciones;
+	public String getObservacion() {
+		return observacion;
 	}
 
-
-
-	public void setObservaciones(String observaciones) {
-		this.observaciones = observaciones;
+	public void setObservacion(String observacion) {
+		this.observacion = observacion;
 	}
-
-
 
 	@Override
 	public String toString() {
 		return "Papeleta [idPapeleta=" + idPapeleta + ", empleado=" + empleado + ", motivo=" + motivo + ", fechaInicio="
 				+ fechaInicio + ", horaInicio=" + horaInicio + ", fechaFin=" + fechaFin + ", horaFin=" + horaFin
-				+ ", observaciones=" + observaciones + "]";
+				+ ", observacion=" + observacion + "]";
 	}
 
 

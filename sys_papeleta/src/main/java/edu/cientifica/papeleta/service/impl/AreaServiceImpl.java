@@ -46,7 +46,7 @@ public class AreaServiceImpl implements AreaService {
 	}
 
 	@Override
-	public Area buscarArea(int codigo) {
+	public Area areaById(int codigo) {
 		for (Area area : listadoAreas) {
 			if (area.getIdArea() == codigo) {
 				return area;

@@ -33,10 +33,14 @@
 		</div>
 		<div id="filainfo">
 			<div id="infosesion">
-        <a href="#"><i class="fa fa-user-circle-o fa-fw" aria-hidden="true"> </i> <strong
-          th:text="'Usuario: ' + ${session.user.username}">LUIS</strong></a> <a href="#" th:href="@{/}"><i class="fa fa-home fa-fw"
-          aria-hidden="true"></i>Salir</a>
-      </div>
+				<a href="#">
+					<i class="fa fa-user-circle-o fa-fw" aria-hidden="true"> </i> <strong
+						th:text="'Usuario: ' + ${session.user.username}">LUIS</strong>
+				</a>
+				<a href="#" th:href="@{/}">
+					<i class="fa fa-home fa-fw" aria-hidden="true"></i>Salir
+				</a>
+			</div>
 			<div id="infotitulo">
 				<p>Página principal</p>
 				<p></p>
@@ -62,6 +66,19 @@
 				<a href="#">
 					<i class="fa fa-cog fa-fw" aria-hidden="true"></i> Configurar
 				</a>
+				<p>Mantenimiento</p>
+        <a href="#" th:href="@{/area/lista}">
+          <i class="fa fa-briefcase" aria-hidden="true"></i></i> Areas
+        </a>
+        <a href="#" th:href="@{/motivo/lista}">
+           <i class="fa fa-sticky-note-o" aria-hidden="true"></i> Motivo
+        </a>
+        <a href="#" th:href="@{/empleado/lista}">
+          <i class="fa fa-address-card-o" aria-hidden="true"></i> Empleado
+        </a>
+        <a href="#" th:href="@{/usuario/lista}">
+          <i class="fa fa-user-plus" aria-hidden="true"></i> Usuario
+        </a>
 			</div>
 
 			<div class="main">
@@ -69,13 +86,14 @@
 				<table class="table table-light">
 					<thead class="thead-light">
 						<tr>
-							<th>Papeleta</th>
+							<th>Id</th>
 							<th>Inicio</th>
 							<th>Fin</th>
 							<th>Empleado</th>
 							<th>Area</th>
 							<th>Motivo</th>
-							
+							<th>Acciones</th>
+
 						</tr>
 					</thead>
 
@@ -88,21 +106,28 @@
 								<span th:text="${papeleta.idPapeleta}">Papeleta</span>
 							</td>
 							<td>
-                <span th:text="${papeleta.fechaInicio}+' '+${papeleta.horaInicio}">Inicio</span>
-              </td>
-              <td>
-                <span th:text="${papeleta.fechaFin}+' '+${papeleta.horaFin}">Fin</span>
-              </td>
-							<td>
-								<span th:text="${papeleta.empleado.nombres}">Empleado</span>
+								<span th:text="${papeleta.fechaInicio}+' '+${papeleta.horaInicio}">Inicio</span>
 							</td>
 							<td>
-								<span th:text="${papeleta.empleado.area.nombreLargo}">Area</span>
+								<span th:text="${papeleta.fechaFin}+' '+${papeleta.horaFin}">Fin</span>
 							</td>
 							<td>
-                <span th:text="${papeleta.motivo.descripcion}">Motivo</span>
-              </td>
-
+								<span th:text="${papeleta.empleado.nombres}+' '+${papeleta.empleado.primerApellido}">Empleado</span>
+							</td>
+							<td>
+								<span th:text="${papeleta.empleado.area.nombreCorto}">Area</span>
+							</td>
+							<td>
+								<span th:text="${papeleta.motivo.descripcion}">Motivo</span>
+							</td>
+							<td>
+								<a href="#" th:href="@{'/papeleta/editar/'+${papeleta.idPapeleta}}">
+									<i class="fa fa-pencil-square" aria-hidden="true"></i>Edit
+								</a>
+								<a href="#" th:href="@{'/papeleta/enviar/'+${papeleta.idPapeleta}}">
+									<i class="fa fa-check-square-o" aria-hidden="true"></i>Send
+								</a>
+							</td>
 						</tr>
 					</tbody>
 				</table>
