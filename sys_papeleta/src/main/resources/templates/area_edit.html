@@ -82,7 +82,7 @@
 
 
 			<div class="main">
-				<form th:action="@{/area/crear}" action="/area/crear" method="POST" th:object="${area}" class="form">
+				<form th:action="@{/area/actualizar}" action="/area/actualizar" method="POST" th:object="${area}" class="form">
 					<div class="container">
 						<div class="row">
 							<div class="col-3">
@@ -118,9 +118,9 @@
               </div>
 
               <div class="col-7">
-              <select id="areaSuperior" name="areaSuperior" class="form-control" th:field="*{areaSuperior}">
-                <option th:each="area : ${listadoAreas}" th:value="${area.idArea}" th:text="${area.nombreLargo}"></option>
-                
+              <select id="areaSuperior" name="areaSuperior" class="form-control" th:field="*{areaSuperior.idArea}">
+                <option th:each="area : ${listadoAreas}" th:value="${area.idArea}" th:text="${area.nombreLargo}" 
+                th:selected="(${area.idArea}==*{areaSuperior.idArea})"></option>
               </select>
               </div>
             </div>

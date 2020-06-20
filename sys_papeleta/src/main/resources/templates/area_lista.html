@@ -112,7 +112,7 @@
 								</a>
 							</td>
 							<td>
-								<span th:text="${area.areaSuperior}">Oficina</span>
+								<span th:text="${area.areaSuperior}? ${area.areaSuperior.nombreLargo}:''">Oficina</span>
 								</a>
 							</td>
 							<td>
